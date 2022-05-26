@@ -1,0 +1,5 @@
+#!/home/kirill/python/projects/weather/venv/bin/python3.10
+from dotenv import load_dotenv
+import requests
+
+load_dotenv()
