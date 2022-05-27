@@ -1,5 +1,20 @@
 #!/home/kirill/python/projects/weather/venv/bin/python3.10
-from dotenv import load_dotenv
-import requests
+from utils.weather_service import get_weather_info
+from utils.output_formater import get_weather_output
+from utils.coordinates import get_city_coordinates
+from utils.cmd_parser import get_parser_values
 
-load_dotenv()
+
+def main():
+    from dotenv import load_dotenv
+
+    load_dotenv()
+    parser_values = get_parser_values()
+
+    coordinates = get_city_coordinates(parser_values.city)
+    weather_info = get_weather_info(coordinates)
+    print(get_weather_output(weather_info))
+
+
+if __name__ == "__main__":
+    main()
