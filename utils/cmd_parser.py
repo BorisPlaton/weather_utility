@@ -1,7 +1,7 @@
 import argparse
 from typing import NamedTuple
 
-from utils.config import config
+from .config import DEFAULT_CITY
 
 
 class ParserValues(NamedTuple):
@@ -11,7 +11,7 @@ class ParserValues(NamedTuple):
 def get_parser_values() -> ParserValues:
     parser = argparse.ArgumentParser(description="Показывает погоду в городе.")
     parser.add_argument(
-        '-c', '--city', type=str, help="Город, о котором будет выведена информация.", default=config.default_city
+        '-c', '--city', type=str, help="Город, о котором будет выведена информация.", default=DEFAULT_CITY
     )
     args = parser.parse_args()
 
